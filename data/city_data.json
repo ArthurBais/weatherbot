@@ -1,0 +1,42 @@
+[
+  {
+    "city": "odesa",
+    "url": "https://www.gismeteo.ua/weather-odessa-4982",
+    "provider": "gismeteo"
+  },
+  {
+    "city": "kyiv",
+    "url": "https://www.gismeteo.ua/weather-kyiv-4944",
+    "provider": "gismeteo"
+  },
+  {
+    "city": "lviv",
+    "url": "https://www.gismeteo.ua/weather-lviv-4949",
+    "provider": "gismeteo"
+  },
+  {
+    "city": "kharkiv",
+    "url": "https://www.gismeteo.ua/weather-kharkiv-14410",
+    "provider": "gismeteo"
+  },
+  {
+    "city": "odesa",
+    "url": "https://sinoptik.ua/погода-одесса",
+    "provider": "sinoptik"
+  },
+  {
+    "city": "lviv",
+    "url": "https://sinoptik.ua/погода-львов",
+    "provider": "sinoptik"
+  },
+  {
+    "city": "kyiv",
+    "url": "https://sinoptik.ua/погода-киев",
+    "provider": "sinoptik"
+  },
+  {
+    "city": "kharkiv",
+    "url": "https://sinoptik.ua/погода-харьков",
+    "provider": "sinoptik"
+  }
+]
