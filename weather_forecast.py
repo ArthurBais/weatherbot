@@ -193,21 +193,22 @@ def sinoptik_fetch(data):
 
 def emojify(s):
     """ returns emojis based on forecast descriptions """
-    if "ясно" in s.lower():
+    s = s.lower()
+    if "ясно" in s:
         return "☀️"
-    elif "дождь" in s.lower() and "гроз" in s.lower():
+    elif "дождь" in s and "гроз" in s:
         return "⛈"
-    elif "дождь" not in s.lower() and "гроз" in s.lower():
+    elif "дождь" not in s and "гроз" in s:
         return "🌩"
-    elif ("пасмурно" in s.lower() or "сплошная облачность" in s.lower()) and "дождь" in s.lower():
+    elif ("пасмурно" in s or "сплошная облачность" in s) and "дождь" in s:
         return "🌧"
-    elif "облач" in s.lower() and "дождь" in s.lower():
+    elif "облач" in s and "дождь" in s:
         return "🌦"
-    elif "малооблачно" in s.lower() or "небольшая облачность" in s.lower():
+    elif "малооблачно" in s or "небольшая облачность" in s:
         return "🌤"
-    elif "пасмурно" in s.lower() or "сплошная облачность" in s.lower():
+    elif "пасмурно" in s or "сплошная облачность" in s:
         return "☁️"
-    elif "облач" in s.lower():
+    elif "облач" in s:
         return "🌥"
     return ""
 
