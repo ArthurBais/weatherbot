@@ -5,6 +5,7 @@ from telegram import ReplyKeyboardMarkup, InlineKeyboardButton, InlineKeyboardMa
 import datetime
 import json
 import locale
+import os
 
 # set russian locale
 locale.setlocale(locale.LC_ALL, "ru_RU.utf8")
@@ -168,7 +169,11 @@ def print_tomorrow_forecast(update, context):
     print_daily_forecast(update, context, 'tomorrow')
 
 def main():
-    persistence_file = PicklePersistence(filename='data/bot_persistence')
+    # TODO: move data to XDG_CACHE_DIR(~/.cache) or XDG_DATA_DIR(~/.local/share)
+    # get script's directory path
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+
+    persistence_file = PicklePersistence(filename=f'{script_dir}/data/bot_persistence')
     updater = Updater(token=TOKEN, use_context=True, persistence=persistence_file)
 
     # add command handlers
@@ -182,9 +187,9 @@ def main():
     updater.dispatcher.add_handler(CallbackQueryHandler(query_handler))
 
     # load data
-    with open("data/weather_data.json", "r") as f:
+    with open(f"{script_dir}/data/weather_data.json", "r") as f:
         updater.dispatcher.bot_data['forecast_data'] = json.loads(f.read())
-    with open("data/city_data.json", "r") as f:
+    with open(f"{script_dir}/data/city_data.json", "r") as f:
         data = json.loads(f.read())
     updater.dispatcher.bot_data['cities'] = set(d['city'] for d in data)
     updater.dispatcher.bot_data['providers'] = set(d['provider'] for d in data)

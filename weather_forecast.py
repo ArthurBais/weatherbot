@@ -214,12 +214,16 @@ def emojify(s):
 
 def fetch_and_write():
     """ fetches data from all providers and saves it to a json file """
-    with open("data/city_data.json", "r") as f:
+    # TODO: move data to XDG_CACHE_DIR(~/.cache) or XDG_DATA_DIR(~/.local/share)
+    # get script's directory path
+    script_dir = os.path.dirname(os.path.realpath(__file__))
+
+    with open(f"{script_dir}/data/city_data.json", "r") as f:
         data = json.loads(f.read())
         gismeteo = gismeteo_fetch(data)
         sinoptik = sinoptik_fetch(data)
 
-    with open("data/weather_data.json", "w", encoding="utf-8") as f:
+    with open(f"{script_dir}/data/weather_data.json", "w", encoding="utf-8") as f:
         json.dump(gismeteo + sinoptik, f, indent=2, ensure_ascii=False)
 
 if __name__ == "__main__":
