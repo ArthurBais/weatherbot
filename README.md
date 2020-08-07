@@ -1,6 +1,11 @@
 # Weatherbot
 Weatherbot is a simple telegram bot for displaying weather forecasts in Ukraine.  
 
+## Demo
+![Demo](demo.gif)
+
+[Link to the bot](https://t.me/ukraine_weather_bot)
+
 # Installation
 ## Clone the repo
 From github:
